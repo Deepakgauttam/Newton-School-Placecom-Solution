@@ -1,0 +1,32 @@
+import java.io.*; // for handling input/output
+import java.util.*; // contains Collections framework
+
+// don't change the name of this class
+// you can add inner classes if needed
+class Main {
+    static ArrayList<Integer> nonRepeat(int num[],int n){
+        Arrays.sort(num);
+        ArrayList<Integer> ans=new ArrayList<>();
+        for(int i=0;i<n-1;i=i+2){
+            if(num[i]!=num[i+1]){
+                ans.add(num[i]);
+                i=i-1;
+            }
+        }
+        if(ans.size()==1)
+        ans.add(num[n-1]);
+        return ans;
+    }
+    public static void main (String[] args) {
+        // Your code here
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int m=2*n+2;
+        int arr[]=new int[m];
+        for(int i=0;i<m;i++){
+            arr[i]=sc.nextInt();
+        }
+        ArrayList<Integer> ans = nonRepeat(arr,m);
+        System.out.println(ans.get(0)+" "+ans.get(1));
+    }
+}
